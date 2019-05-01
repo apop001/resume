@@ -298,10 +298,12 @@
   /* 下拉列表ul的显示与隐藏 */
   #hw-header #crumb_left>li:nth-child(8){
     position:relative;
+    z-index:200; /* 设置z-index,为了不被网页下面的内容所遮挡 */
   }
   #hw-header #crumb_left>li:nth-child(8)>ul{
     display:none;
     position:absolute;
+    z-index:200;
     top:36px;
     left:-44px;
   }
@@ -352,6 +354,8 @@
 
   #hw-header #crumb_right>li:first-child{
     position:relative;
+    z-index:200;
+    background-color:#F2F2F2;
   }
   #hw-header #crumb_right>li:first-child:hover{
     background-color:#fff;
@@ -363,6 +367,7 @@
   #hw-header #crumb_right>li:first-child>ul>li:first-child{
     display:none;
     position:absolute;
+    z-index:200;
     top:36px;
     left:-398px;
 
@@ -394,6 +399,7 @@
 
   #hw-header #crumb_right>li:nth-child(3){
     position:relative;
+    z-index:200;
     /* width: */
   }
   #hw-header #crumb_right>li:nth-child(3)>ul{
@@ -404,6 +410,7 @@
     /* 这个套了5个li的ul放在了父级li:nth-child(3)下，所以ul的宽度是li:nth-child(3)的宽度，若要让子级ul设置自己的宽度，就要在自己ul上设置单位为vw的宽度；vw：让子级超过父级的宽度，让子级的宽度自适应布局单位，为视窗窗口view width
     vw:让子级的宽度标准，从父级变为视窗窗口 */
     position:absolute;
+    z-index:200;
     top:36px;
     left:-815px;
     display:flex;
@@ -441,7 +448,7 @@
     padding:20px 0 0 50px;
   }
   #hw-header #crumb_right>li:nth-child(3)>ul>li:first-child>p{
-    padding:5px 0 0 15px;
+    padding:5px 0 0 0px;
   }
   #hw-header #crumb_right>li:nth-child(3)>ul>li:first-child>a>img{
     width:80px;
@@ -555,7 +562,7 @@
     margin:0 5px 0;
   }
   #hw-header #crumb_right ul.nav_down_ul>li>div>p:first-child{
-    font-size:14px;
+    font-size:13px;
     font-weight:bold;
     margin-bottom:2px;
     color:#3a3a3a;
@@ -563,10 +570,12 @@
   /* 下拉列表ul的显示与隐藏 */
   #hw-header #crumb_right>li{
     position:relative;
+    z-index:200;
   }
   #hw-header #crumb_right>li:nth-child(4)>ul{
     display:none;
     position:absolute;
+    z-index:200;
     /* width:77.8px; */
   }
   #hw-header #crumb_right>li:nth-child(4):hover>ul{
@@ -575,6 +584,7 @@
   #hw-header #crumb_right>li:nth-child(2)>ul{
     display:none;
     position:absolute;
+    z-index:200;
     top:36px;
     left:-181px;
   }
