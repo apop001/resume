@@ -315,6 +315,133 @@
             </li>
         </ul>
 
+        <!-- 轮播图下方的小长条导航 -->
+        <ul id="below_big_nav"> <!-- <a href="javascript:;"></a> -->
+            <!-- 第一个大li -->
+            <li>
+                <!-- 左边--头像 -->
+                <div>
+                    <img src="http://127.0.0.1:3001/img/index/below_big_nav_line11.png" alt="">
+                </div>
+                <!-- 右边--登录注册等 -->
+                <div>
+                    <!-- 上 -->
+                    <div>
+                        <span>您好！请</span>
+                        <span><a href="javascript:;">登录</a></span>
+                        <span>/</span>
+                        <span><a href="javascript:;">注册</a></span>
+                    </div>
+                    <!-- 下 -->
+                    <div>
+                        <span><a href="javascript:;">新人福利</a></span>
+                        <span><a href="javascript:;">会员频道</a></span>
+                    </div>
+                </div>
+            </li>
+            <!-- 第二个大li -->
+            <li>
+                <ul>
+                    <li>
+                        <!-- 1/6 -->
+                        <a href="javascript:;">
+                            <p></p>
+                            <!-- <img src="http://127.0.0.1:3001/img/index/below_big_nav_line2x3x.png" alt="">图片精灵 -->
+                            <p>企业购特惠</p>
+                        </a>
+                    </li>
+                    <li>
+                        <!-- 2/6 -->
+                        <a href="javascript:;">
+                            <p></p>
+                            <!-- <img src="http://127.0.0.1:3001/img/index/below_big_nav_line2x3x.png" alt=""> -->
+                            <p>以旧换新</p>
+                        </a>
+                    </li>
+                    <li>
+                        <!-- 3/6 -->
+                        <a href="javascript:;">
+                            <p></p>
+                            <!-- <img src="http://127.0.0.1:3001/img/index/below_big_nav_line2x3x.png" alt=""> -->
+                            <p>会员领券</p>
+                        </a>
+                    </li>
+                    <li>
+                        <!-- 4/6 -->
+                        <a href="javascript:;">
+                            <p></p>
+                            <!-- <img src="http://127.0.0.1:3001/img/index/below_big_nav_line2x3x.png" alt=""> -->
+                            <p>新品优享购</p>
+                        </a>
+                    </li>
+                    <li>
+                        <!-- 5/6 -->
+                        <a href="javascript:;">
+                            <p></p>
+                            <!-- <img src="http://127.0.0.1:3001/img/index/below_big_nav_line2x3x.png" alt=""> -->
+                            <p>荣耀数码</p>
+                        </a>
+                    </li>
+                    <li>
+                        <!-- 6/6 -->
+                        <a href="javascript:;">
+                            <p></p>
+                            <!-- <img src="http://127.0.0.1:3001/img/index/below_big_nav_line2x3x.png" alt=""> -->
+                            <p>华为数码</p>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <!-- 第三个大li -->
+            <li>
+                <!-- 上一排：公告 -->
+                <div>
+                    <span><a href="javascript:;">公告</a></span>
+                    <span>
+                        <!-- ul>li -->
+                        <ul :class="{announce_go_top:is_announce_move}">
+                            <li v-for="(item,i) of small_announce_list">
+                                <a href="javascript:;">
+                                    {{item.title}}
+                                    <!-- {{small_announce_list[1].title}} -->
+                                    </a>
+                            </li>
+                            <!-- <li v-for="(item,i) of small_announce_list" :key="i">
+                                <a href="javascript:;">{{item.title}}</a>
+                            </li> -->
+                            <!-- <li><a href="javascript:;">会员购机享多重优惠</a></li>
+                            <li><a href="javascript:;">华为51活动公告</a></li>
+                            <li><a href="javascript:;">5月购机抽奖公告</a></li>
+                            <li><a href="javascript:;">nova系列购机享福利</a></li>
+                            <li><a href="javascript:;">荣耀五一耀出游活动公告</a></li> -->
+                        </ul>
+                    </span>
+                </div>
+                <!-- 下一排：小图片精灵 -->
+                <div>
+                    <ul>
+                        <li>
+                            <a href="javascript:;">
+                                <span></span>
+                                <span>优购码</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">
+                                <span></span>
+                                <span>实名认证</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">
+                                <span></span>
+                                <span>补购保障</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
 
 
 
@@ -412,8 +539,20 @@
                                  {lid:611,lname:"智能计算",img_url:"http://127.0.0.1:3001/img/index/big_nav_line611.png"},
                                  {lid:612,lname:"增值卡",img_url:"http://127.0.0.1:3001/img/index/big_nav_line612.png"}
                                ],
-                is_big_nav_li_enter:false /* 开关，根据mouseenter与mouseleave，修改第一个与第六个li的border-radius */
+                is_big_nav_li_enter:false, /* 开关，根据mouseenter与mouseleave，修改第一个与第六个li的border-radius */
+                small_announce_list:[ /* 公告栏小轮播 */
+                                        {aid:0,title:"1-会员购机享多重优惠"},
+                                        {aid:1,title:"2-华为51活动公告"},
+                                        {aid:2,title:"3-5月购机抽奖公告"},
+                                        {aid:3,title:"4-nova系列购机享福利"},
+                                        {aid:4,title:"5-荣耀五一耀出游活动公告"}
+                                    ],
+                // announce_id:0,
+                is_announce_move:false
             }
+        },
+        mounted(){
+            setInterval(this.announce_move,2000);//页面公告的显示
         },
         methods:{
             big_nav_li_enter(){ /* 根据mouseenter与mouseleave，修改第一个与第六个li的border-radius */
@@ -421,6 +560,14 @@
             },
             big_nav_li_leave(){
                 this.is_big_nav_li_enter=false;
+            },
+            announce_move(){
+                this.is_announce_move=true;
+                var timer=setTimeout(()=>{
+                    this.small_announce_list.push(this.small_announce_list[0]);//末尾追加
+                    this.small_announce_list.shift();//删除第一个
+                    this.is_announce_move=false;
+                },500)
             }
         },
         components:{myHeader,myFooter,mySubHeader}
@@ -428,6 +575,288 @@
 </script>
 
 <style>
+    /* 轮播图下方的小长条导航 */
+    #hw_index>ul#below_big_nav{
+        /* border:1px solid greenyellow; */
+        box-shadow:0px 0px 2px 4px #F8F8F8;
+        border-radius:12px;
+        width:94vw;
+        margin-left:28px;
+        position:relative;
+        /* top:-6px; */
+        z-index:10;
+        /* padding:16px 0; */
+        display:flex;/* 左中右三个大li弹起来 */
+    }
+
+    #hw_index>ul#below_big_nav>li:first-child{ /* 1/3 */
+        margin:16px 0;
+        display:flex;/* 左右图片与文字弹起来 */
+        /* border:1px solid red; */
+        border-right:1px solid #EEEEEE;
+        width:20vw;
+        padding-left:26px;
+        padding-top:4px;
+    }
+    #hw_index>ul#below_big_nav>li:first-child>div{
+        /* border:1px solid red; */
+    }
+    #hw_index>ul#below_big_nav>li:first-child>div:first-child{
+        padding-right:12px;
+    }
+    #hw_index>ul#below_big_nav>li:first-child>div:first-child>img{ /* 头像 */
+        width:52px;
+        height:52px;
+    }
+    #hw_index>ul#below_big_nav>li:first-child>div:nth-child(2)>div:first-child{ /* 右上一排 */
+        padding-bottom:10px;
+    }
+    #hw_index>ul#below_big_nav>li:first-child>div:nth-child(2)>div:first-child>span:first-child{
+        font-size:14px;
+        color:#999;
+        padding-right:5px;
+    }
+    #hw_index>ul#below_big_nav>li:first-child>div:nth-child(2)>div:first-child>span:nth-child(3){
+        font-size:14px;
+        color:#333;
+        padding:0 6px;
+    }
+    #hw_index>ul#below_big_nav>li:first-child>div:nth-child(2)>div:first-child>span>a{
+        font-size:14px;
+        color:#333;
+        /* padding:0 5px; */
+    }
+    #hw_index>ul#below_big_nav>li:first-child>div:nth-child(2)>div:first-child>span>a:hover{
+        color:#D3454B;
+    }
+    #hw_index>ul#below_big_nav>li:first-child>div:nth-child(2)>div:nth-child(2){/* 右下一排 */
+
+    }
+    #hw_index>ul#below_big_nav>li:first-child>div:nth-child(2)>div:nth-child(2)>span:first-child{
+        padding-right:10px;
+    }
+    #hw_index>ul#below_big_nav>li:first-child>div:nth-child(2)>div:nth-child(2)>span:first-child>a{ /*左边 新人福利 按钮*/
+        display:inline-block;
+        font-size:13px;
+        color:#DE5B60;
+        border:1px solid #E47B7F;
+        border-radius:5px;
+        padding:1px 6px;
+    }
+    #hw_index>ul#below_big_nav>li:first-child>div:nth-child(2)>div:nth-child(2)>span:first-child>a:hover{
+        border:1px solid #DE5B60;
+        background-color:#DE5B60;
+        color:#fff;
+    }
+
+
+    #hw_index>ul#below_big_nav>li:first-child>div:nth-child(2)>div:nth-child(2)>span:nth-child(2)>a{ /* 右边 会员频道 按钮 */
+        display:inline-block;
+        font-size:13px;
+        color:#FDE4B3;
+        border:1px solid #595454;
+        background-color:#595454;
+        border-radius:5px;
+        padding:1px 6px;
+    }
+    #hw_index>ul#below_big_nav>li:first-child>div:nth-child(2)>div:nth-child(2)>span:nth-child(2)>a:hover{
+        border:1px solid #333333;
+        background-color:#333333;
+        color:#FDE4B3;
+    }
+
+
+    #hw_index>ul#below_big_nav>li:nth-child(2){ /* 2/3 */
+        width:50vw;
+        /* border:1px solid red; */
+        margin:16px 0;
+        /* border-right:1px solid #EEEEEE; */
+    }
+    #hw_index>ul#below_big_nav>li:nth-child(2)>ul{
+        display:flex; /* 让6个li弹起来 */
+        justify-content:space-around;
+    }
+    #hw_index>ul#below_big_nav>li:nth-child(2)>ul>li{ /* 6个li */
+        /* border:1px solid red; */
+        width:80px;
+    }
+    #hw_index>ul#below_big_nav>li:nth-child(2)>ul>li>a>p{ /* 去除p标签的默认样式 */
+        margin:0px;
+    }
+     /* 图片精灵 */
+    #hw_index>ul#below_big_nav>li:nth-child(2)>ul>li>a>p:first-child{
+        width:40px;
+        height:40px;
+        /* border:1px solid red; */
+        /* margin-left:20px; */
+        /* margin-top:5px; */
+        margin:0 0 8px 20px;
+        background:url("http://127.0.0.1:3001/img/index/below_big_nav_line2x3x.png") no-repeat;
+        background-size:300px 40px; /* 把背景图片等比例压缩一下 */
+    }
+    #hw_index>ul#below_big_nav>li:nth-child(2)>ul>li:first-child>a>p:first-child{
+        background-position:0 0;
+    }
+    #hw_index>ul#below_big_nav>li:nth-child(2)>ul>li:nth-child(2)>a>p:first-child{
+        background-position:-40px 0;
+    }
+    #hw_index>ul#below_big_nav>li:nth-child(2)>ul>li:nth-child(3)>a>p:first-child{
+        background-position:-80px 0;
+    }
+    #hw_index>ul#below_big_nav>li:nth-child(2)>ul>li:nth-child(4)>a>p:first-child{
+        background-position:-120px 0;
+    }
+    #hw_index>ul#below_big_nav>li:nth-child(2)>ul>li:nth-child(5)>a>p:first-child{
+        background-position:-160px 0;
+    }
+    #hw_index>ul#below_big_nav>li:nth-child(2)>ul>li:nth-child(6)>a>p:first-child{
+        background-position:-200px 0;
+    }
+
+    #hw_index>ul#below_big_nav>li:nth-child(2)>ul>li>a>p:nth-child(2){
+        font-size:12px;
+        color:#777;
+    }
+    #hw_index>ul#below_big_nav>li:nth-child(2)>ul>li:hover>a>p:nth-child(2){
+        color:#D3454B;
+    }
+
+
+    #hw_index>ul#below_big_nav>li:nth-child(3){ /* 3/3 */
+        /* border:1px solid red; */
+        width:24vw;
+        /* height:100%; */
+        border-left:1px solid #eee;
+    }
+    #hw_index>ul#below_big_nav>li:nth-child(3)>div:first-child{ /* 上一排：公告 */
+        /* height:50%; */
+        height:50px;
+        position:relative;
+        /* box-sizing:border-box; */
+        overflow:hidden;
+    }
+    #hw_index>ul#below_big_nav>li:nth-child(3)>div:first-child>span:first-child{/* "公告"文字 */
+        position:relative;
+        top:16px;
+        left:-108px;
+    }
+    #hw_index>ul#below_big_nav>li:nth-child(3)>div:first-child>span:first-child>a{
+        font-size:14px;
+        font-weight:bold;
+        color:#777;
+    }
+    #hw_index>ul#below_big_nav>li:nth-child(3)>div:first-child>span:nth-child(2){ /* 公告 自动小轮播 */
+        display:block;
+        position:relative;
+        
+        height:45px;
+        /* overflow:hidden; */
+    }
+    #hw_index>ul#below_big_nav>li:nth-child(3)>div:first-child{
+        /* overflow:hidden; */
+    }
+    #hw_index>ul#below_big_nav>li:nth-child(3)>div:first-child>span:nth-child(2)>ul>li{
+        
+    }
+    #hw_index>ul#below_big_nav>li:nth-child(3)>div:first-child>span:nth-child(2)>ul{
+        display:block;
+        position:absolute;
+        top:-8px;
+        left:95px;
+    }
+    #hw_index>ul#below_big_nav>li:nth-child(3)>div:first-child>span:nth-child(2)>ul.announce_go_top{
+        transition:all 0.5s ease-in;
+        margin-top:-30px;
+    }
+    #hw_index>ul#below_big_nav>li:nth-child(3)>div:first-child>span:nth-child(2)>ul>li{
+        height:30px;
+        line-height:30px;
+        
+    }
+    
+
+
+
+
+    #hw_index>ul#below_big_nav>li:nth-child(3)>div:first-child>span:nth-child(2)>ul>li>a{
+        color:#6F6F6F;
+    }
+    #hw_index>ul#below_big_nav>li:nth-child(3)>div:first-child>span:nth-child(2)>ul>li>a:hover{
+        color:#D3454B;
+    }
+
+
+
+    #hw_index>ul#below_big_nav>li:nth-child(3)>div:nth-child(2){ /* 下一排：小图片精灵 */
+        /* border:1px solid red; */
+        border-top:1px solid #EEEEEE;
+        height:50%;
+        padding-top:4px;
+    }
+    #hw_index>ul#below_big_nav>li:nth-child(3)>div:nth-child(2)>ul{
+        display:flex;/* 让三个小li弹起来 */
+        justify-content:space-around;
+        /* align-items:center; */
+    }
+    #hw_index>ul#below_big_nav>li:nth-child(3)>div:nth-child(2)>ul>li{
+        padding-top:4px;
+    }
+    #hw_index>ul#below_big_nav>li:nth-child(3)>div:nth-child(2)>ul>li>a{
+        /* border:1px solid red; */
+        display:inline-block;
+        position:relative;
+    }
+    #hw_index>ul#below_big_nav>li:nth-child(3)>div:nth-child(2)>ul>li>a>span:first-child{
+        display:inline-block;
+        /* border:1px solid blue; */
+        width:20px;
+        height:20px;
+        position:relative;
+        top:6px;
+        margin-right:4px;
+        /* border:1px solid red; */
+        /* margin-left:20px; */
+        /* margin-top:5px; */
+        /* margin:0 0 8px 20px; */
+        background:url("http://127.0.0.1:3001/img/index/below_big_nav_line2x3x.png") no-repeat;
+        background-size:300px 40px; /* 把背景图片等比例压缩一下 */
+    }
+    #hw_index>ul#below_big_nav>li:nth-child(3)>div:nth-child(2)>ul>li:first-child>a>span:first-child{
+        background-position:-241px 0;
+    }
+    #hw_index>ul#below_big_nav>li:nth-child(3)>div:nth-child(2)>ul>li:nth-child(2)>a>span:first-child{
+        background-position:-261px 0;
+    }
+    #hw_index>ul#below_big_nav>li:nth-child(3)>div:nth-child(2)>ul>li:nth-child(3)>a>span:first-child{
+        background-position:-281px 0;
+    }
+    #hw_index>ul#below_big_nav>li:nth-child(3)>div:nth-child(2)>ul>li>a>span:nth-child(2){
+        color:#666;
+    }
+    #hw_index>ul#below_big_nav>li:nth-child(3)>div:nth-child(2)>ul>li:hover>a>span:nth-child(2){
+        color:#D3454B;
+    }
+
+
+
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     /* 轮播图 */
     #hw_index>div.el-carousel>div.el-carousel__container{
         height:510px;
